@@ -1,0 +1,6 @@
+val maxCampaignForHousingYesAndY0ByEducation = data.filter(col("y") === 0)
+  .filter(col("housing") === "yes")
+  .groupBy("education")
+  .agg(max("campaign"))
+println("Maximum campaign for individuals with housing and y=0 by education:")
+maxCampaignForHousingYesAndY0ByEducation.show()

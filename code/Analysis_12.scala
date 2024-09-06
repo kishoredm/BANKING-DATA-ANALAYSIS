@@ -1,0 +1,6 @@
+val avgDurationForMarriedAndY1ByJob = data.filter(col("y") === 1)
+  .filter(col("marital") === "married")
+  .groupBy("job")
+  .agg(avg("duration"))
+println("Average duration for married individuals with y=1 by job:")
+avgDurationForMarriedAndY1ByJob.limit(4).show()
